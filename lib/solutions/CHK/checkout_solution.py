@@ -5,7 +5,7 @@ def checkout(skus):
     special_offers = {
         "A": [{"quantity": 5, "price": 200}, {"quantity": 3, "price": 130}],
         "B": [{"quantity": 2, "price": 45}],
-        "E": [{"quantity": 2, "free_item": "B"}]
+        "E": [{"quantity": 2, "free_item": "B"}],
     }
 
     if any(char not in item_prices for char in skus):
@@ -15,10 +15,6 @@ def checkout(skus):
     for sku in skus:
         if sku in item_prices:
             sku_count[sku] = sku_count.get(sku, 0) + 1
-    
-    if "E" in sku_count and "B" in sku_count:
-        free_items = sku_count["E"] // 2
-        sku_count["B"] -= free_items
 
     total_checkout = 0
     for sku, count in sku_count.items():
@@ -30,8 +26,14 @@ def checkout(skus):
                     offer_count = count // quantity
                     total_checkout += offer_count * price
                     count = count % quantity
-        
+                elif "free_item" in special_offer:
+                    free_item = special_offer["free_item"]
+                    if sku in sku_count and free_item in sku_count:
+                        free_items_count = count // quantity
+                        sku_count[free_item] -= free_items_count
+
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
