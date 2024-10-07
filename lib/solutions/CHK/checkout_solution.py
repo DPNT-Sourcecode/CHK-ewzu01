@@ -18,4 +18,6 @@ def checkout(skus):
     for sku, count in sku_count.items():
         if sku in special_offers:
             if count == special_offers[sku]["quantity"]:
-            total_checkout += 
+                total_checkout += count * special_offers[sku]["price"]
+            else:
+                remaining_skus = abs(count - special_offers[sku]["quantity"])
