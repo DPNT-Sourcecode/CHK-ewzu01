@@ -6,7 +6,28 @@ def apply_free_item_offer(sku_count, sku, free_item_sku, quantity):
 
 
 def checkout(skus):
-    item_prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
+    item_prices = {
+        "A": 50,
+        "B": 30,
+        "C": 20,
+        "D": 15,
+        "E": 40,
+        "F": 10,
+        "G": 20,
+        "H": 10,
+        "I": 35,
+        "J": 60,
+        "K": 80,
+        "L": 90,
+        "M": 15,
+        "N": 40,
+        "O": 10,
+        "P": 50,
+        "Q": 30,
+        "R": 50,
+        "S": 30,
+        
+    }
     special_offers = {
         "A": [{"quantity": 5, "price": 200}, {"quantity": 3, "price": 130}],
         "B": [{"quantity": 2, "price": 45}],
@@ -42,4 +63,5 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
