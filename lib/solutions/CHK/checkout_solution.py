@@ -17,12 +17,15 @@ def checkout(skus):
     total_checkout = 0
     for sku, count in sku_count.items():
         if sku in special_offers:
-            if count == special_offers[sku]["quantity"]:
+            price = special_offers[sku]["price"]
+            quantity = special_offers[sku]["quantity"]
+            if count == quantity:
                 total_checkout += count * special_offers[sku]["price"]
-            elif count % special_offers[sku]["quantity"] == 0:
-                total_checkout += (count / special_offers[sku]["quantity"]) * special_offers[sku]["quantity"]
-            elif count < special_offers[sku]["quantity"]:
+            elif count % quantity == 0:
+                total_checkout += (count / quantity) * special_offers[sku]["price"]
+            elif count < quantity:
                 total_checkout += count * item_prices[sku]
             else:
-                remaining_skus = count - ((count // special_offers[sku]["quantity"]) * 
-                total_checkout += 
+                remaining_skus = count - ((count // quantity) * quantity)
+                total_checkout += (count // quantity) * special_offers[sku]["price"] + remaining_skus * item_prices[sku]
+            
