@@ -46,3 +46,5 @@ special_offers = {
     "Y": [{"quantity": 3, "price": 45}],
     "Z": [{"quantity": 3, "price": 45}],
 }
+
+group_items = ["S", "T", "X", "Y", "Z"]

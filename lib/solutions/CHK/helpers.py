@@ -28,7 +28,12 @@ def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
         apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
 
 
-def apply_group_discount(sku_count, group_items, group_price, group_size):
+def apply_group_discount(
+    sku_count: dict[str, list[dict[str, str | int]]],
+    group_items: list[str],
+    group_price: int,
+    group_size: int,
+):
     group_items_count = 0
     for item in group_items:
         group_items_count += sku_count.get(item, 0)
@@ -49,6 +54,3 @@ def apply_group_discount(sku_count, group_items, group_price, group_size):
                 items_to_remove_count = 0
 
     return discounted_price
-
-
-
