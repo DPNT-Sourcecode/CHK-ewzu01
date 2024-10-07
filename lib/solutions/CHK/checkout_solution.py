@@ -17,7 +17,7 @@ def checkout(skus):
         apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
 
     if "F" in sku_count:
-        apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3, condition=3)
+        apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
 
     if "N" in sku_count and "M" in sku_count:
         apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
