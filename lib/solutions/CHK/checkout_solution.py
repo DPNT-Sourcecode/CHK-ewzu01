@@ -16,7 +16,7 @@ def checkout(skus):
         if sku in item_prices:
             sku_count[sku] = sku_count.get(sku, 0) + 1
     
-    # Handle special case
+    # Handle round 2 special case here
     if "E" in sku_count and "B" in sku_count:
         free_items = sku_count["E"] // 2
         sku_count["B"] -= free_items
@@ -35,5 +35,6 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 
