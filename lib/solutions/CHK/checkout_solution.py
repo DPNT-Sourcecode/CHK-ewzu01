@@ -20,8 +20,8 @@ def checkout(skus: str):
     total_checkout = 0
     total_checkout += group_discount
     for sku, count in sku_count.items():
-        if sku in special_offers and count > 0:
-            for special_offer in special_offers[sku]:
+        if sku in special_offer_prices and count > 0:
+            for special_offer in special_offer_prices[sku]:
                 if "price" in special_offer:
                     offer_count = count // special_offer["quantity"]
                     total_checkout += offer_count * special_offer["price"]
@@ -30,6 +30,7 @@ def checkout(skus: str):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 
 

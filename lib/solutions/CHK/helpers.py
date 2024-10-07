@@ -1,4 +1,4 @@
-from .constants import item_prices, special_offers_free_items
+from .constants import item_prices, special_offer_free_items
 
 
 def apply_free_item_offer(
@@ -15,8 +15,9 @@ def apply_free_item_offer(
 
 
 def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
-    for special_offer in special_offers_free_items:
-        
+    for sku, special_offer in special_offer_free_items.items():
+        if sku in sku_count and special_offer["free_item"] in sku_count:
+            apply_free_item_offer(sku_count, sku=, free_item_sku="B", quantity=2)
     # if "E" in sku_count and "B" in sku_count:
     #     apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
 
@@ -61,6 +62,7 @@ def apply_group_discount(
                 items_to_remove_count -= 1
 
     return discounted_price
+
 
 
 
