@@ -44,7 +44,9 @@ def checkout(skus):
         "N": [{"quantity": 3, "free_item": "M"}],
         "P": [{"quantity": 5, "price": 200}],
         "Q": [{"quantity": 3, "price": 80}],
-        "N": [{"quantity": 3, "free_item": "M"}],
+        "R": [{"quantity": 3, "free_item": "Q"}],
+        "U": [{"quantity": 3, "free_item": "U"}],
+        "V": [{"quantity": 2, "price": 90}, {"quantity": 3, "price": 130}],
     }
 
     if any(char not in item_prices for char in skus):
@@ -75,3 +77,4 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
