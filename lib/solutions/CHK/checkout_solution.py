@@ -1,10 +1,10 @@
 # noinspection PyUnusedLocal
+
+from constants import item_prices, special_offers
+from helpers import apply_free_item_offer
+
+
 # skus = unicode string
-def apply_free_item_offer(sku_count, sku, free_item_sku, quantity):
-    free_items = sku_count[sku] // quantity
-    sku_count[free_item_sku] -= free_items
-
-
 def checkout(skus):
     if any(char not in item_prices for char in skus):
         return -1
@@ -22,10 +22,10 @@ def checkout(skus):
 
     if "N" in sku_count and "M" in sku_count:
         apply_free_item_offer(sku_count, "N", "M", 3)
-        
+
     if "R" in sku_count and "Q" in sku_count:
         apply_free_item_offer(sku_count, "R", "Q", 3)
-        
+
     if "U" in sku_count:
         apply_free_item_offer(sku_count, "U", "U", 3)
 
@@ -43,6 +43,7 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 
 
