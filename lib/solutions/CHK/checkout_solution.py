@@ -1,7 +1,7 @@
 # noinspection PyUnusedLocal
 
 from .constants import item_prices, special_offers
-from .helpers import apply_free_item_offer
+from .helpers import apply_free_item_offer, apply_group_discount
 
 
 # skus = unicode string
@@ -28,7 +28,10 @@ def checkout(skus):
     if "U" in sku_count:
         apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
 
-    total_checkout = 0
+    group_items = ["S", "T", "X", "Y", "Z"]
+    group_discount = apply_group_discount(sku_count, group_items, group_size=3, group_price=45)
+
+    total_checkout += group_discount
     for sku, count in sku_count.items():
         if sku in special_offers and count > 0:
             for special_offer in special_offers[sku]:
@@ -42,3 +45,4 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+

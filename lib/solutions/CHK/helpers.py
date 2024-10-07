@@ -1,4 +1,4 @@
-def apply_free_item_offer(sku_count, sku, free_item_sku, quantity, condition=None):
+def apply_free_item_offer(sku_count, sku, free_item_sku, quantity):
     if sku == "F" or sku != free_item_sku or sku_count[sku] > quantity:
         free_items = sku_count[sku] // quantity
     else:
@@ -27,3 +27,4 @@ def apply_group_discount(sku_count, group_items, group_price, group_size):
                 items_to_remove_count = 0
 
     return discounted_price
+
