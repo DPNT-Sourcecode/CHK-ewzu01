@@ -24,4 +24,5 @@ def checkout(skus):
             elif count < special_offers[sku]["quantity"]:
                 total_checkout += count * item_prices[sku]
             else:
+                remaining_skus = count - ((count // special_offers[sku]["quantity"]) * 
                 total_checkout += 
