@@ -9,7 +9,12 @@ def checkout(skus):
     if any(char not in skus for char in skus):
         return -1
     
+    sku_count = {}
+    for sku in skus:
+        if sku in item_prices.keys():
+            sku
 
+    total_checkout = 0
 
 
 
