@@ -50,4 +50,6 @@ special_offer_free_items = {
     "U": {"quantity": 3, "free_item": "U"},
 }
 
-
+discount_group_items = ["S", "T", "X", "Y", "Z"]
+discount_group_size = 3
+discount_group_price = 45

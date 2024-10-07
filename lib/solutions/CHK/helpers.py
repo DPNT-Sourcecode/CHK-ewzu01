@@ -1,17 +1,4 @@
-from .constants import item_prices, special_offer_free_items
-
-
-def apply_free_item_offer(
-    sku_count: dict[str, list[dict[str, str | int]]],
-    sku: str,
-    free_item_sku: str,
-    quantity: int,
-):
-    if sku == "F" or sku != free_item_sku or sku_count[sku] > quantity:
-        free_items = sku_count[sku] // quantity
-    else:
-        free_items = 0
-    sku_count[free_item_sku] -= free_items
+from .constants import item_prices, special_offer_free_items, discount_group_items, discount_group_size
 
 
 def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
@@ -24,27 +11,27 @@ def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
             else:
                 free_items = 0
             sku_count[free_item_sku] -= free_items
-            # apply_free_item_offer(sku_count, sku, free_item_sku, quantity=special_offer["quantity"])
 
-def apply_group_discount(
-    sku_count: dict[str, list[dict[str, str | int]]],
-    group_items: list[str],
-    group_price: int,
-    group_size: int,
-):
+
+def apply_group_discount(sku_count: dict[str, list[dict[str, str | int]]]):
     group_items_count = 0
     group_items_prices = {}
-    for item in group_items:
+    for item in discount_group_items:
         group_items_count += sku_count.get(item, 0)
         if item in item_prices:
             group_items_prices[item] = item_prices[item]
 
-    group_items_prices_sorted = {k: v for k, v in sorted(group_items_prices.items(), key=lambda item: item[1], reverse=True)}
+    group_items_prices_sorted = {
+        k: v
+        for k, v in sorted(
+            group_items_prices.items(), key=lambda item: item[1], reverse=True
+        )
+    }
 
-    discount_groups_count = group_items_count // group_size
-    discounted_price = discount_groups_count * group_price
+    discount_groups_count = group_items_count // discount_group_size
+    discounted_price = discount_groups_count * discount_group_size
 
-    items_to_remove_count = discount_groups_count * group_size
+    items_to_remove_count = discount_groups_count * discount_group_size
     for item in group_items_prices_sorted:
         if items_to_remove_count <= 0:
             break
@@ -54,9 +41,3 @@ def apply_group_discount(
                 items_to_remove_count -= 1
 
     return discounted_price
-
-
-
-
-
-
