@@ -9,7 +9,7 @@ item_prices = {
     "H": 10,
     "I": 35,
     "J": 60,
-    "K": 80,
+    "K": 70,
     "L": 90,
     "M": 15,
     "N": 40,
@@ -17,14 +17,14 @@ item_prices = {
     "P": 50,
     "Q": 30,
     "R": 50,
-    "S": 30,
+    "S": 20,
     "T": 20,
     "U": 40,
     "V": 50,
     "W": 20,
-    "X": 90,
-    "Y": 10,
-    "Z": 50,
+    "X": 17,
+    "Y": 20,
+    "Z": 21,
 }
 
 special_offers = {
@@ -33,7 +33,7 @@ special_offers = {
     "E": [{"quantity": 2, "free_item": "B"}],
     "F": [{"quantity": 3, "free_item": "F"}],
     "H": [{"quantity": 10, "price": 80}, {"quantity": 5, "price": 45}],
-    "K": [{"quantity": 2, "price": 150}],
+    "K": [{"quantity": 2, "price": 120}],
     "N": [{"quantity": 3, "free_item": "M"}],
     "P": [{"quantity": 5, "price": 200}],
     "Q": [{"quantity": 3, "price": 80}],
@@ -46,3 +46,4 @@ special_offers = {
     "Y": [{"quantity": 3, "price": 45}],
     "Z": [{"quantity": 3, "price": 45}],
 }
+
