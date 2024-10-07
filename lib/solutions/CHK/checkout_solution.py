@@ -12,9 +12,11 @@ def checkout(skus):
     sku_count = {}
     for sku in skus:
         if sku in item_prices.keys():
-            sku
+            sku_count[sku] = sku_count.get(sku, 0) + 1
 
     total_checkout = 0
+    for sku, offer in .items():
+
 
 
 
