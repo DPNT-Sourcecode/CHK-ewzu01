@@ -1,14 +1,15 @@
-
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
     item_prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-    special_offers = {"A": {"quantity": 3, "price": 130}, "B": {"quantity": 2, "price": 45}}
+    special_offers = {
+        "A": {"quantity": 3, "price": 130},
+        "B": {"quantity": 2, "price": 45},
+    }
 
     if any(char not in skus for char in skus):
         return -1
-    
+
     sku_count = {}
     for sku in skus:
         if sku in item_prices:
@@ -20,12 +21,19 @@ def checkout(skus):
             price = special_offers[sku]["price"]
             quantity = special_offers[sku]["quantity"]
             if count == quantity:
-                total_checkout += count * special_offers[sku]["price"]
+                total_checkout += count * price
             elif count % quantity == 0:
-                total_checkout += (count / quantity) * special_offers[sku]["price"]
+                total_checkout += (count / quantity) * price
             elif count < quantity:
                 total_checkout += count * item_prices[sku]
             else:
-                remaining_skus = count - ((count // quantity) * quantity)
-                total_checkout += (count // quantity) * special_offers[sku]["price"] + remaining_skus * item_prices[sku]
-            
+                sku_groups = count // quantity
+                remaining_skus = count - (sku_groups * quantity)
+                total_checkout += (sku_groups * price) + (
+                    remaining_skus * item_prices[sku]
+                )
+        else:
+            total_checkout += count * item_prices[sku]
+
+    return total_checkout
+
