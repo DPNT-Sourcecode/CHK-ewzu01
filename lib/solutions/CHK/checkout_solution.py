@@ -1,18 +1,17 @@
 # noinspection PyUnusedLocal
 
-from constants import item_prices, special_offers
-from helpers import apply_free_item_offer
+from .constants import item_prices, special_offers
+from .helpers import apply_free_item_offer
 
 
 # skus = unicode string
 def checkout(skus):
-    if any(char not in item_prices for char in skus):
-        return -1
-
     sku_count = {}
     for sku in skus:
         if sku in item_prices:
             sku_count[sku] = sku_count.get(sku, 0) + 1
+        else:
+            return -1
 
     if "E" in sku_count and "B" in sku_count:
         apply_free_item_offer(sku_count, "E", "B", 2)
@@ -43,6 +42,7 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 
 
