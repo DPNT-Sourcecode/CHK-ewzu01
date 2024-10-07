@@ -21,7 +21,7 @@ def checkout(skus):
             price = special_offers[sku]["price"]
             quantity = special_offers[sku]["quantity"]
             if count == quantity:
-                total_checkout += count * price
+                total_checkout += price
             elif count % quantity == 0:
                 total_checkout += (count / quantity) * price
             elif count < quantity:
@@ -34,6 +34,3 @@ def checkout(skus):
             total_checkout += count * item_prices[sku]
 
     return total_checkout
-
-
-
