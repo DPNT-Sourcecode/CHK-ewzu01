@@ -46,4 +46,3 @@ special_offers = {
     "Y": [{"quantity": 3, "price": 45}],
     "Z": [{"quantity": 3, "price": 45}],
 }
-
