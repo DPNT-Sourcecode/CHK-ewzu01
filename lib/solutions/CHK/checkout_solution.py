@@ -14,6 +14,8 @@ def checkout(skus: str):
 
     apply_free_item_offers(sku_count)
 
+    total_checkout = 0
+
     group_discount = apply_group_discount(sku_count, group_items, group_size=3, group_price=45)
 
     total_checkout += group_discount
@@ -30,3 +32,4 @@ def checkout(skus: str):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
