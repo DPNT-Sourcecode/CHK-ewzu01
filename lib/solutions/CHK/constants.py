@@ -38,6 +38,11 @@ special_offers = {
     "P": [{"quantity": 5, "price": 200}],
     "Q": [{"quantity": 3, "price": 80}],
     "R": [{"quantity": 3, "free_item": "Q"}],
+    "S": [{"quantity": 3, "price": 45}],
+    "T": [{"quantity": 3, "price": 45}],
     "U": [{"quantity": 3, "free_item": "U"}],
     "V": [{"quantity": 3, "price": 130}, {"quantity": 2, "price": 90}],
+    "X": [{"quantity": 3, "price": 45}],
+    "Y": [{"quantity": 3, "price": 45}],
+    "Z": [{"quantity": 3, "price": 45}],
 }
