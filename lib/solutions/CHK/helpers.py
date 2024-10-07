@@ -42,12 +42,17 @@ def apply_group_discount(
     discounted_price = discount_groups_count * group_price
 
     items_to_remove_count = discount_groups_count * group_size
-    for item in sku_count:
+    for item in group_items:
         if items_to_remove_count <= 0:
-                break
-        while sku_count[item] > 0:
-            sku_count[item] -= 1
-            items_to_remove_count -= 1
+            break
+        if item in sku_count:
+            if sku_count[item] <= items_to_remove_count:
+                items_to_remove_count -= sku_count[item]
+                sku_count[item] = 0
+            else:
+                sku_count[item] -= items_to_remove_count
+                items_to_remove_count = 0
 
     return discounted_price
+
 
