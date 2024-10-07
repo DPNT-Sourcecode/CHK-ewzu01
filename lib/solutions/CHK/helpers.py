@@ -44,12 +44,7 @@ def apply_group_discount(
         if item in item_prices:
             group_items_prices[item] = item_prices[item]
 
-    group_items_prices_sorted = {
-        k: v
-        for k, v in sorted(
-            group_items_prices.items(), key=lambda item: item[1], reverse=True
-        )
-    }
+    group_items_prices_sorted = {k: v for k, v in sorted(group_items_prices.items(), key=lambda item: item[1], reverse=True)}
 
     discount_groups_count = group_items_count // group_size
     discounted_price = discount_groups_count * group_price
@@ -64,4 +59,5 @@ def apply_group_discount(
                 items_to_remove_count -= 1
 
     return discounted_price
+
 
