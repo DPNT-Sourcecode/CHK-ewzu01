@@ -29,11 +29,10 @@ def checkout(skus):
             else:
                 sku_groups = count // quantity
                 remaining_skus = count - (sku_groups * quantity)
-                total_checkout += (sku_groups * price) + (
-                    remaining_skus * item_prices[sku]
-                )
+                total_checkout += (sku_groups * price) + (remaining_skus * item_prices[sku])
         else:
             total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
