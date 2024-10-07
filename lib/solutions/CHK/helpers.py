@@ -54,5 +54,3 @@ def apply_group_discount(
                 items_to_remove_count = 0
 
     return discounted_price
-
-
