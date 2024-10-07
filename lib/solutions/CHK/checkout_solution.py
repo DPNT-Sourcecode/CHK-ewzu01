@@ -17,8 +17,5 @@ def checkout(skus):
     total_checkout = 0
     for sku, count in sku_count.items():
         if sku in special_offers:
+            if count == special_offers[sku]["quantity"]:
             total_checkout += 
-
-
-
-
