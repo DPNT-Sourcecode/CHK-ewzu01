@@ -17,7 +17,7 @@ def checkout(skus):
         apply_free_item_offer(sku_count, "E", "B", 2)
 
     if "F" in sku_count:
-        apply_free_item_offer(sku_count, "F", "F", 3, True)
+        apply_free_item_offer(sku_count, "F", "F", 3)
 
     if "N" in sku_count and "M" in sku_count:
         apply_free_item_offer(sku_count, "N", "M", 3)
@@ -42,4 +42,5 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
