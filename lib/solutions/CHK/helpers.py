@@ -1,4 +1,4 @@
-from .constants import item_prices
+from .constants import item_prices, special_offers_free_items
 
 
 def apply_free_item_offer(
@@ -15,20 +15,22 @@ def apply_free_item_offer(
 
 
 def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
-    if "E" in sku_count and "B" in sku_count:
-        apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
+    for special_offer in special_offers_free_items:
+        
+    # if "E" in sku_count and "B" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
 
-    if "F" in sku_count:
-        apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
+    # if "F" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
 
-    if "N" in sku_count and "M" in sku_count:
-        apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
+    # if "N" in sku_count and "M" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
 
-    if "R" in sku_count and "Q" in sku_count:
-        apply_free_item_offer(sku_count, sku="R", free_item_sku="Q", quantity=3)
+    # if "R" in sku_count and "Q" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="R", free_item_sku="Q", quantity=3)
 
-    if "U" in sku_count:
-        apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
+    # if "U" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
 
 
 def apply_group_discount(
@@ -59,5 +61,6 @@ def apply_group_discount(
                 items_to_remove_count -= 1
 
     return discounted_price
+
 
 

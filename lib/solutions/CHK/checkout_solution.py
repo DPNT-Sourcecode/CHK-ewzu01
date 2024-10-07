@@ -1,5 +1,5 @@
 # noinspection PyUnusedLocal
-from .constants import item_prices, special_offers
+from .constants import item_prices, special_offer_prices
 from .helpers import apply_free_item_offers, apply_group_discount
 
 
@@ -30,5 +30,6 @@ def checkout(skus: str):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 

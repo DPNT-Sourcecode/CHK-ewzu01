@@ -27,23 +27,27 @@ item_prices = {
     "Z": 21,
 }
 
-special_offers = {
+special_offer_prices = {
     "A": [{"quantity": 5, "price": 200}, {"quantity": 3, "price": 130}],
     "B": [{"quantity": 2, "price": 45}],
-    "E": [{"quantity": 2, "free_item": "B"}],
-    "F": [{"quantity": 3, "free_item": "F"}],
     "H": [{"quantity": 10, "price": 80}, {"quantity": 5, "price": 45}],
     "K": [{"quantity": 2, "price": 120}],
-    "N": [{"quantity": 3, "free_item": "M"}],
     "P": [{"quantity": 5, "price": 200}],
     "Q": [{"quantity": 3, "price": 80}],
-    "R": [{"quantity": 3, "free_item": "Q"}],
     "S": [{"quantity": 3, "price": 45}],
     "T": [{"quantity": 3, "price": 45}],
-    "U": [{"quantity": 3, "free_item": "U"}],
     "V": [{"quantity": 3, "price": 130}, {"quantity": 2, "price": 90}],
     "X": [{"quantity": 3, "price": 45}],
     "Y": [{"quantity": 3, "price": 45}],
     "Z": [{"quantity": 3, "price": 45}],
 }
+
+special_offer_free_items = {
+    "E": {"quantity": 2, "free_item": "B"},
+    "F": {"quantity": 3, "free_item": "F"},
+    "N": {"quantity": 3, "free_item": "M"},
+    "R": {"quantity": 3, "free_item": "Q"},
+    "U": {"quantity": 3, "free_item": "U"},
+}
+
 
