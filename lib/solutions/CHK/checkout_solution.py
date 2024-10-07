@@ -7,7 +7,7 @@ def checkout(skus):
         "B": {"quantity": 2, "price": 45},
     }
 
-    if any(char not in skus for char in skus):
+    if any(char not in item_prices for char in skus):
         return -1
 
     sku_count = {}
@@ -34,5 +34,6 @@ def checkout(skus):
             total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
 
