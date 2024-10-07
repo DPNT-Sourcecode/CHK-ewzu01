@@ -16,8 +16,15 @@ def apply_free_item_offer(
 
 def apply_free_item_offers(sku_count: dict[str, list[dict[str, str | int]]]):
     for sku, special_offer in special_offer_free_items.items():
-        if sku in sku_count and special_offer["free_item"] in sku_count:
-            apply_free_item_offer(sku_count, sku=, free_item_sku="B", quantity=2)
+        free_item_sku = special_offer["free_item"]
+        quantity = special_offer["quantity"]
+        if sku in sku_count and free_item_sku in sku_count:
+            if sku == "F" or sku != free_item_sku or sku_count[sku] > quantity:
+                free_items = sku_count[sku] // quantity
+            else:
+                free_items = 0
+            sku_count[free_item_sku] -= free_items
+            # apply_free_item_offer(sku_count, sku, free_item_sku, quantity=special_offer["quantity"])
     # if "E" in sku_count and "B" in sku_count:
     #     apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
 
@@ -62,6 +69,7 @@ def apply_group_discount(
                 items_to_remove_count -= 1
 
     return discounted_price
+
 
 
 
