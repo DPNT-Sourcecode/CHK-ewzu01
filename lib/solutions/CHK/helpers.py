@@ -6,6 +6,23 @@ def apply_free_item_offer(sku_count, sku, free_item_sku, quantity):
     sku_count[free_item_sku] -= free_items
 
 
+def apply_free_item_offers(sku_count):
+    if "E" in sku_count and "B" in sku_count:
+        apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
+
+    if "F" in sku_count:
+        apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
+
+    if "N" in sku_count and "M" in sku_count:
+        apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
+
+    if "R" in sku_count and "Q" in sku_count:
+        apply_free_item_offer(sku_count, sku="R", free_item_sku="Q", quantity=3)
+
+    if "U" in sku_count:
+        apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
+
+
 def apply_group_discount(sku_count, group_items, group_price, group_size):
     group_items_count = 0
     for item in group_items:
@@ -27,4 +44,5 @@ def apply_group_discount(sku_count, group_items, group_price, group_size):
                 items_to_remove_count = 0
 
     return discounted_price
+
 

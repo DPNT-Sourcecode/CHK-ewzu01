@@ -1,5 +1,4 @@
 # noinspection PyUnusedLocal
-
 from .constants import item_prices, special_offers
 from .helpers import apply_free_item_offer, apply_group_discount
 
@@ -13,20 +12,22 @@ def checkout(skus):
         else:
             return -1
 
-    if "E" in sku_count and "B" in sku_count:
-        apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
+    # if "E" in sku_count and "B" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="E", free_item_sku="B", quantity=2)
 
-    if "F" in sku_count:
-        apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
+    # if "F" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="F", free_item_sku="F", quantity=3)
 
-    if "N" in sku_count and "M" in sku_count:
-        apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
+    # if "N" in sku_count and "M" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="N", free_item_sku="M", quantity=3)
 
-    if "R" in sku_count and "Q" in sku_count:
-        apply_free_item_offer(sku_count, sku="R", free_item_sku="Q", quantity=3)
+    # if "R" in sku_count and "Q" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="R", free_item_sku="Q", quantity=3)
 
-    if "U" in sku_count:
-        apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
+    # if "U" in sku_count:
+    #     apply_free_item_offer(sku_count, sku="U", free_item_sku="U", quantity=3)
+
+    apply_free_item_offers()
 
     group_items = ["S", "T", "X", "Y", "Z"]
     group_discount = apply_group_discount(sku_count, group_items, group_size=3, group_price=45)
@@ -45,4 +46,5 @@ def checkout(skus):
         total_checkout += count * item_prices[sku]
 
     return total_checkout
+
 
